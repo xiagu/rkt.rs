@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<meta charset="UTF-8">
+	<title>Arcturus</title>
 	<link href="https://fonts.googleapis.com/css?family=Exo+2:100,400" rel="stylesheet"> 
 	<link href="main.css" rel="stylesheet"> 
 	<body>
@@ -12,6 +13,15 @@
 			<span class="title">altitude</span>
 			<numbers id="altitude"><span class="degree"></span><span class="minute"></span><span class="second"></span></numbers>
 		</statistic>
+
+		<svg id="celestial-sphere" height="200" width="200" viewbox="-100 -100 200 200">
+			<ellipse cx="0" cy="0" rx="100" ry="25.8819" />
+			<ellipse id="altitude-plane" cx="0" cy="0" rx="100" ry="100" />
+			<circle cx="0" cy="0" r="100" />
+			<circle id="star" cx="-200" cy="-200" r="4" />
+		</svg>
+
+		<script type="text/javascript" src="gl-matrix-min.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>

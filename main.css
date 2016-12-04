@@ -37,3 +37,27 @@ span.minute::after {
 span.second::after {
 	content: "\"";
 }
+
+#celestial-sphere circle,
+#celestial-sphere ellipse {
+	fill: none;
+	stroke: white;
+	stroke-width: 1;
+}
+
+#horizon-plane {
+	transform: rotateX(75deg);
+}
+
+#azimuth-plane {
+	transform: rotateX(90deg) rotateY(30deg);
+}
+
+#azimuth-plane circle {
+	stroke: red;
+}
+
+#celestial-sphere #star {
+	fill: orange;
+	stroke: none;
+}
