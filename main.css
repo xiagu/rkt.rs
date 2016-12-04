@@ -2,29 +2,44 @@ body {
 	background: #322;
 	font-family: 'Exo 2', sans-serif;
 	font-size: 40px;
-	color: #cdd;
-	padding-left: 100px;
+	color: #dcc;
+	padding: 0;
+	margin: 0;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1 {
+	font-weight: 100;
+	letter-spacing: .23em;
 }
 
 statistic {
 	display: block;
-	margin-top: 1em;
-	margin-bottom: 1em;
+	margin: .5em 0;
 }
 
 statistic .title {
 	display: inline-block;
-	width: 5em;
+	width: 4em;
 }
 
 statistic numbers {
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 1.5em;
+}
+
+statistic numbers span:first-of-type {	
+	width: 2.25em;
 }
 
 statistic numbers span {
 	display: inline-block;
-	width: 2.25em;
+	width: 1.75em;
 	text-align: right;
 }
 
@@ -38,12 +53,18 @@ span.second::after {
 	content: "\"";
 }
 
-#celestial-sphere circle,
-#celestial-sphere ellipse {
-	fill: none;
-	stroke: white;
-	stroke-width: 1;
+svg text {
+	fill: #eee;
 }
+
+svg circle,
+svg ellipse {
+	fill: none;
+	stroke: #eee;
+	stroke-width: 2;
+}
+
+svg { position:fixed; top:0; left:0; height:100%; width:100% }
 
 #horizon-plane {
 	transform: rotateX(75deg);
@@ -57,7 +78,11 @@ span.second::after {
 	stroke: red;
 }
 
-#celestial-sphere #star {
+#star {
 	fill: orange;
 	stroke: none;
+}
+
+#compass-container {
+	transform: rotateX(60deg);
 }

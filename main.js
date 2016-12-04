@@ -104,29 +104,23 @@ var updateInterval;
     document.querySelector(parentSelector + " > .second").innerHTML = second;
   }
 
-  function updateSphere(azimuth, altitude) {
-    // azimuth = toRadians(0);
-    altitude = toRadians(45);
-    const starPosMatrix = new Array(16);
-    mat4.identity(starPosMatrix);
-    mat4.rotateX(starPosMatrix, starPosMatrix, toRadians(15));
-    mat4.rotateY(starPosMatrix, starPosMatrix, azimuth);
-    mat4.rotateZ(starPosMatrix, starPosMatrix, -altitude);
+  // function updateSphere(azimuth, altitude) {
+  //   // azimuth = toRadians(0);
+  //   // altitude = toRadians(45);
+  //   const starPosMatrix = new Array(16);
+  //   mat4.identity(starPosMatrix);
+  //   mat4.rotateZ(starPosMatrix, starPosMatrix, -altitude);
     
-    const starPos = new Array(4);
-    vec4.transformMat4(starPos, vec4.fromValues(100, 0, 0, 0), starPosMatrix);
+  //   const starPos = new Array(4);
+  //   vec4.transformMat4(starPos, vec4.fromValues(100, 0, 0, 0), starPosMatrix);
 
-    const starElem = document.getElementById('star');
-    starElem.setAttribute('cx', starPos[0]);
-    starElem.setAttribute('cy', starPos[1]);
+  //   const starElem = document.getElementById('star');
+  //   starElem.setAttribute('cx', starPos[0]);
+  //   starElem.setAttribute('cy', starPos[1]);
 
-    const altPlaneElem = document.getElementById('altitude-plane');
-    mat4.identity(starPosMatrix);
-    mat4.rotateX(starPosMatrix, starPosMatrix, toRadians(15));
-    mat4.rotateY(starPosMatrix, starPosMatrix, azimuth);
-    vec4.transformMat4(starPos, vec4.fromValues(100, 0, 0, 0), starPosMatrix);
-    altPlaneElem.setAttribute('rx', Math.abs(starPos[0]));
-  }
+  //   const compass = document.getElementById('compass');
+  //   compass.setAttribute('transform', `rotate(${toDegrees(azimuth)+90})`);
+  // }
 
   let testAzimuth = 0;
   function updateDOM() {
@@ -137,7 +131,7 @@ var updateInterval;
 
     updateDisplay('#azimuth', ...azimuthArr);
     updateDisplay('#altitude', ...altitudeArr);
-    updateSphere(testAzimuth, altitude);
+    // updateSphere(azimuth, altitude);
     testAzimuth += toRadians(5);
   }
 
