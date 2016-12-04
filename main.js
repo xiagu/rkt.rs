@@ -73,14 +73,24 @@ var updateInterval;
     return [azimuth, altitude];
   }
 
+  /**
+   * +19° 10′ 56″
+   */
+  function formatDegrees(rawDegrees) {
+    const d = Math.trunc(rawDegrees);
+    const m = Math.trunc(Math.abs(rawDegrees - d) * 60);
+    const s = Math.trunc((Math.abs(rawDegrees - d) * 60 - m) * 60);
+    return `${d}&deg; ${m}' ${s}"`;
+  }
+
   function updateDOM() {
     const azimuthElem = document.getElementById('azimuth');
     const altitudeElem = document.getElementById('altitude');
 
     const [azimuth, altitude] = computeHorizontalCoords();
 
-    azimuthElem.innerText = azimuth;
-    altitudeElem.innerText = altitude;
+    azimuthElem.innerHTML = formatDegrees(toDegrees(azimuth));
+    altitudeElem.innerHTML = formatDegrees(toDegrees(altitude));
   }
 
   // Update numbers every second

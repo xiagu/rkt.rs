@@ -1,0 +1,11 @@
+body {
+	background: #322;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 40px;
+	color: #cdd;
+	padding: 50px;
+}
+
+p > span {
+	margin-left: 1em;
+}
