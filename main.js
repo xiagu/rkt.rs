@@ -22,6 +22,20 @@ var updateInterval;
   // const DECLINATION = 19.1873 // degrees
   const DECLINATION = 0.33488 // radians
 
+  // San Jose, CA
+  let LAT = 37.338;
+  let LNG = -121.886;
+
+  function getLatLng() {
+    if (!("geolocation" in navigator)) return;
+    // Otherwise, geolocation is available
+    navigator.geolocation.getCurrentPosition((position) => {
+      LAT = position.coords.latitude;
+      LNG = position.coords.longitude;
+    });
+  }
+  getLatLng();
+  
   function getLocalSiderealTime(lng) {
     GST_2016 = 6.821 // base for jan 01 0h UT
 
@@ -49,10 +63,6 @@ var updateInterval;
   }
 
   function computeHorizontalCoords() {
-    // TODO: get from some kind of geolocation API
-    const LAT = 37.338;
-    const LNG = -121.886;
-
     const localSiderealTime = getLocalSiderealTime(LNG);
 
     local_hour_angle = (local_sidereal_time - RIGHT_ASCENSION + 24) % 24
