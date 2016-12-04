@@ -3,10 +3,38 @@ body {
 	font-family: 'Exo 2', sans-serif;
 	font-size: 40px;
 	color: #cdd;
-	padding: 50px;
 	padding-left: 100px;
 }
 
-p > span {
-	margin-left: 1em;
+statistic {
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+statistic .title {
+	display: inline-block;
+	width: 5em;
+}
+
+statistic numbers {
+	font-weight: 100;
+	font-size: 1.5em;
+}
+
+statistic numbers span {
+	display: inline-block;
+	width: 2em;
+	margin-left: .5em;
+	text-align: right;
+}
+
+span.degree::after {
+	content: "°";
+}
+span.minute::after {
+	content: "'";
+}
+span.second::after {
+	content: "\"";
 }

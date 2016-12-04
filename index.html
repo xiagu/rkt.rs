@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<meta charset="UTF-8">
-	<link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:100,400" rel="stylesheet"> 
 	<link href="main.css" rel="stylesheet"> 
 	<body>
-		<p>azimuth <span id="azimuth"></span></p>
-		<p>altitude <span id="altitude"></span></p>
+		<statistic>
+			<span class="title">azimuth</span>
+			<numbers id="azimuth"><span class="degree"></span><span class="minute"></span><span class="second"></span></numbers>
+		</statistic>
+		<statistic>
+			<span class="title">altitude</span>
+			<numbers id="altitude"><span class="degree"></span><span class="minute"></span><span class="second"></span></numbers>
+		</statistic>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
 </html>

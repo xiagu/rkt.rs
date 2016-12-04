@@ -83,24 +83,35 @@ var updateInterval;
     return [azimuth, altitude];
   }
 
+  function degreeComponents(degrees) {
+    const d = Math.trunc(degrees);
+    const m = Math.trunc(Math.abs(degrees - d) * 60);
+    const s = Math.trunc((Math.abs(degrees - d) * 60 - m) * 60);
+    return [d, m, s];
+  }
+
   /**
    * +19° 10′ 56″
    */
   function formatDegrees(rawDegrees) {
-    const d = Math.trunc(rawDegrees);
-    const m = Math.trunc(Math.abs(rawDegrees - d) * 60);
-    const s = Math.trunc((Math.abs(rawDegrees - d) * 60 - m) * 60);
+    const [d, m, s] = degreeComponents(rawDegrees);
     return `${d}&deg; ${m}' ${s}"`;
   }
 
-  function updateDOM() {
-    const azimuthElem = document.getElementById('azimuth');
-    const altitudeElem = document.getElementById('altitude');
+  function updateDisplay(parentSelector, degree, minute, second) {
+    document.querySelector(parentSelector + " > .degree").innerHTML = degree;
+    document.querySelector(parentSelector + " > .minute").innerHTML = minute;
+    document.querySelector(parentSelector + " > .second").innerHTML = second;
+  }
 
+  function updateDOM() {
     const [azimuth, altitude] = computeHorizontalCoords();
 
-    azimuthElem.innerHTML = formatDegrees(toDegrees(azimuth));
-    altitudeElem.innerHTML = formatDegrees(toDegrees(altitude));
+    const azimuthArr = degreeComponents(toDegrees(azimuth));
+    const altitudeArr = degreeComponents(toDegrees(altitude));
+
+    updateDisplay('#azimuth', ...azimuthArr);
+    updateDisplay('#altitude', ...altitudeArr);
   }
 
   // Update numbers every second
