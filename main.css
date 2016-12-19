@@ -15,6 +15,11 @@ body {
 	color: #ccd;
 }
 
+#sun {
+	background: #332;
+	color: #ddc;
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
