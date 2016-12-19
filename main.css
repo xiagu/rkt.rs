@@ -1,10 +1,18 @@
 body {
-	background: #322;
 	font-family: 'Exo 2', sans-serif;
 	font-size: 40px;
-	color: #dcc;
 	padding: 0;
 	margin: 0;
+}
+
+#arcturus {
+	background: #322;
+	color: #dcc;
+}
+
+#moon {
+	background: #223;
+	color: #ccd;
 }
 
 .wrapper {
@@ -33,7 +41,7 @@ statistic numbers {
 	font-size: 1.5em;
 }
 
-statistic numbers span:first-of-type {	
+statistic numbers span:first-of-type {
 	width: 2.25em;
 }
 
