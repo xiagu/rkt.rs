@@ -1,6 +1,7 @@
 body {
 	font-family: 'Exo 2', sans-serif;
 	font-size: 40px;
+	line-height: 1.5;
 	padding: 0;
 	margin: 0;
 }
@@ -32,18 +33,30 @@ h1 {
 }
 
 statistic {
-	display: block;
-	margin: .5em 0;
+	width: 520px; /* TODO: improve */
+	display: flex;
+	align-items: baseline;
 }
 
 statistic .title {
 	display: inline-block;
-	width: 4em;
 }
 
+statistic number,
 statistic numbers {
 	font-weight: 200;
 	font-size: 1.5em;
+	flex-grow: 1;
+	text-align: right;
+}
+
+#phase {
+	font-size: 1.15em;
+}
+
+#illumination::after {
+	content: "%";
+	font-size: 0.75em; /* UNF this is like Web 9.0 */
 }
 
 statistic numbers span:first-of-type {
@@ -71,13 +84,24 @@ svg text {
 }
 
 svg circle,
-svg ellipse {
+svg path {
 	fill: none;
 	stroke: #eee;
 	stroke-width: 2;
 }
 
-svg { position:fixed; top:0; left:0; height:100%; width:100% }
+#moon svg ellipse {
+	stroke: none;
+}
+
+#moon-render {
+    height: 1.5em;
+    align-self: baseline;
+    margin-left: 2.5em;
+    position: relative;
+    bottom: -0.15em;
+}
+}
 
 #horizon-plane {
 	transform: rotateX(75deg);

@@ -15,6 +15,21 @@
 				<span class="title">altitude</span>
 				<numbers id="altitude"><span class="degree"></span><span class="minute"></span><span class="second"></span></numbers>
 			</statistic>
+			<statistic>
+				<span class="title">phase</span>
+				<number id="phase"></number>
+			</statistic>
+			<statistic>
+				<span class="title">illumination</span>
+				<svg id="moon-render" viewbox="-110 -110 220 220">
+					<path id="right-half" d="M0,-100 a100,100 0 0,1 0,200" />
+					<path id="left-half" d="M0,-100 a100,100 0 0,0 0,200" />
+					<ellipse id="ellipse" cx="0" cy="0" ry="100" rx="80" />
+					<circle cx="0" cy="0" r="100" />
+				</svg>
+				<number id="illumination"></number>
+			</statistic>
+
 		</div>
 
 		<script type="text/javascript" src="/suncalc.js"></script>
