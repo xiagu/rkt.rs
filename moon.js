@@ -14,9 +14,29 @@ var updateInterval;
     navigator.geolocation.getCurrentPosition((position) => {
       LAT = position.coords.latitude;
       LNG = position.coords.longitude;
-    });
+    }
   }
   getLatLng();
+
+  function getPhaseName(phase) {
+    const phaseTolerance = .1;
+    const NEW = 0;
+    const FIRST_Q = 0.25;
+    const FULL = 0.5;
+    const THIRD_Q = 0.75;
+    if (phase > NEW - phaseTolerance % 1 && phase < NEW + phaseTolerance % 1) {
+      return "New"
+    }
+    const phases = [0, .25, .5, .75, 1];
+    const phaseNames = ["New", "Waxing Crescent", "First Quarter", "Waxing Gibbous", "Full", "Waning Gibbous", "Third Quarter", "Waning Crescent", "New"];
+    for(let i = 0; i < phases.length; i++) {
+      if (phase >= phases[i] - phaseTolerance % 1 && phase < phases[i] + phaseTolerance % 1) {
+        return phaseNames[2*i];
+      } else if (phase >= phases[i] + phaseTolerance % 1 && phase < phases[i+1] - phaseTolerance % 1) {
+        return phaseNames[2*i+1];
+      }
+    }
+  }
 
   function updateDOM() {
     const now = new Date();
